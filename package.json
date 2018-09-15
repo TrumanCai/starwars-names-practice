@@ -21,6 +21,9 @@
     "url": "https://github.com/TrumanCai/starwars-names-test/issues"
   },
   "homepage": "https://github.com/TrumanCai/starwars-names-test#readme",
+  "jshintConfig": {
+    "esversion": 6
+  },
   "dependencies": {
     "unique-random-array": "1.0.1"
   }
