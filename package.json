@@ -1,14 +1,14 @@
 {
-  "name": "starwars-names-test",
+  "name": "starwars-names-practice",
   "version": "1.0.0",
-  "description": "Get a random Stars Wars name test",
+  "description": "Get a random Stars Wars name practice",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TrumanCai/starwars-names-test.git"
+    "url": "git+https://github.com/TrumanCai/starwars-names-practice.git"
   },
   "keywords": [
     "random",
@@ -18,9 +18,9 @@
   "author": "chasee <007memory@gmail.com> (https://geekcai.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TrumanCai/starwars-names-test/issues"
+    "url": "https://github.com/TrumanCai/starwars-names-practice/issues"
   },
-  "homepage": "https://github.com/TrumanCai/starwars-names-test#readme",
+  "homepage": "https://github.com/TrumanCai/starwars-names-practice#readme",
   "jshintConfig": {
     "esversion": 6
   },
