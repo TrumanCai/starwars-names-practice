@@ -1,0 +1,27 @@
+{
+  "name": "starwars-names-test",
+  "version": "1.0.0",
+  "description": "Get a random Stars Wars name test",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrumanCai/starwars-names-test.git"
+  },
+  "keywords": [
+    "random",
+    "star",
+    "name"
+  ],
+  "author": "chasee <007memory@gmail.com> (https://geekcai.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TrumanCai/starwars-names-test/issues"
+  },
+  "homepage": "https://github.com/TrumanCai/starwars-names-test#readme",
+  "dependencies": {
+    "unique-random-array": "1.0.1"
+  }
+}
