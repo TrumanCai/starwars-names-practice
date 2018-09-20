@@ -1,14 +1,15 @@
 {
   "name": "starwars-names-practice",
-  "version": "1.0.1",
+  "version": "0.0.0-development",
   "description": "Get a random Stars Wars name practice",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha src/index.test.js"
+    "test": "mocha src/index.test.js",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TrumanCai/starwars-names-practice.git"
+    "url": "https://github.com/TrumanCai/starwars-names-practice.git"
   },
   "keywords": [
     "random",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "4.1.2",
-    "mocha": "5.2.0"
+    "mocha": "5.2.0",
+    "semantic-release": "15.9.16"
   }
 }
