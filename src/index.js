@@ -3,7 +3,8 @@ const starWarsNames = require("./starwars-names.json");
 const getRandomItem = uniqueRandomArray(starWarsNames);
 module.exports = {
   all: starWarsNames,
-  random: random
+  random: random,
+  containsInsensitive: getItems
 };
 
 function random(n) {
@@ -15,5 +16,19 @@ function random(n) {
       randomItems.push(getRandomItem());
     }
     return randomItems;
+  }
+}
+
+function getItems(seed) {
+  if(void 0 === seed) {
+    return void 0;
+  } else {
+    let items = [];
+    starWarsNames.forEach(function(item) {
+      if (item.includes(seed)) {
+        items.push(item);
+      }
+    });
+    return items;
   }
 }

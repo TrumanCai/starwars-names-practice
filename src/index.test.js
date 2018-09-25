@@ -1,6 +1,5 @@
 const expect = require('chai').expect;
 const starWars = require('./index');
-const pool = require('./starwars-names');
 
 describe("starwars-names", function () {
   describe('all', function () {
@@ -33,6 +32,18 @@ describe("starwars-names", function () {
         expect(starWars.all).to.includes(item);
         expect(starWars.all).to.include(item);
       });
+    });
+  });
+  describe('containsInsensitive', function () {
+    it('should return all items contain M/m from all', function () {
+      const allItems = starWars.containsInsensitive('m');
+      allItems.forEach(function( item ) {
+        expect(starWars.all).to.contains(item);
+      });
+    });
+    it('should return null when search nothing', function () {
+      const allItems = starWars.containsInsensitive();
+      expect(void 0).to.be.equal(allItems);
     });
   });
 });
