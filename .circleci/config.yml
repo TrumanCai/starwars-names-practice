@@ -24,5 +24,8 @@ jobs:
           name: coverage
           command: npm run test:cover
       - run:
+          name: check coverage
+          command: npm run check-coverage
+      - run:
           name: release
           command: npm run semantic-release || true
