@@ -4,7 +4,9 @@
   "description": "Get a random Stars Wars name practice",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha src/index.test.js",
+    "test:cover": "istanbul cover node_modules/mocha/bin/_mocha && codecov",
+    "test:cover:local": "istanbul cover node_modules/mocha/bin/_mocha",
+    "test": "mocha",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
   },
@@ -12,11 +14,7 @@
     "type": "git",
     "url": "https://github.com/TrumanCai/starwars-names-practice.git"
   },
-  "keywords": [
-    "random",
-    "star",
-    "name"
-  ],
+  "keywords": ["random", "star", "name"],
   "author": "chasee <007memory@gmail.com> (https://geekcai.com/)",
   "license": "MIT",
   "bugs": {
@@ -32,14 +30,20 @@
   },
   "devDependencies": {
     "chai": "4.1.2",
+    "codecov": "3.1.0",
     "commitizen": "2.10.1",
     "cz-conventional-changelog": "2.1.0",
+    "ghooks": "2.0.4",
+    "istanbul": "0.4.5",
     "mocha": "5.2.0",
     "semantic-release": "15.9.16"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
     }
   }
 }
