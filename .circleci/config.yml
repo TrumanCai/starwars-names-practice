@@ -22,10 +22,10 @@ jobs:
           command: npm run test
       - run:
           name: coverage
-          command: npm run test:cover
+          command: npm run cover
       - run:
-          name: check coverage
-          command: npm run check-coverage
+          name: build
+          command: npm run build
       - run:
           name: release
           command: npm run semantic-release || true

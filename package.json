@@ -2,20 +2,31 @@
   "name": "starwars-names-practice",
   "version": "0.0.0-development",
   "description": "Get a random Stars Wars name practice",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test:cover": "istanbul cover node_modules/mocha/bin/_mocha && codecov",
-    "test:cover:local": "istanbul cover node_modules/mocha/bin/_mocha",
-    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100  --lines 100",
-    "test": "mocha",
-    "semantic-release": "semantic-release",
-    "commit": "git-cz"
+    "coverage": "nyc report --reporter=text-lcov && codecov",
+    "release": "babel src --copy-files --out-dir dist",
+    "pretest": "standard --fix --env mocha && npm run release",
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
+    "prepare": "rimraf dist && npm test && npm run release",
+    "version": "standard-version",
+    "test:watch": "npm t -- -w",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/TrumanCai/starwars-names-practice.git"
   },
-  "keywords": ["random", "star", "name"],
+  "keywords": [
+    "random",
+    "star",
+    "name"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "chasee <007memory@gmail.com> (https://geekcai.com/)",
   "license": "MIT",
   "bugs": {
@@ -30,21 +41,58 @@
     "unique-random-array": "1.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "7.0.0",
+    "@babel/core": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/register": "7.0.0",
+    "ajv": "6.5.4",
+    "babel-plugin-istanbul": "5.0.1",
     "chai": "4.1.2",
     "codecov": "3.1.0",
     "commitizen": "2.10.1",
+    "cross-env": "5.2.0",
     "cz-conventional-changelog": "2.1.0",
     "ghooks": "2.0.4",
-    "istanbul": "0.4.5",
     "mocha": "5.2.0",
-    "semantic-release": "15.9.16"
+    "nyc": "13.0.1",
+    "rimraf": "2.6.2",
+    "semantic-release": "15.9.16",
+    "standard": "12.0.1",
+    "standard-version": "4.4.0"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test && npm run check-coverage"
+      "pre-commit": "npm run test && npm run coverage"
     }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "branches": 100,
+    "statements": 100,
+    "functions": 100,
+    "include": [
+      "src/*.js"
+    ],
+    "require": [
+      "@babel/register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }
