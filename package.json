@@ -10,6 +10,7 @@
     "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
     "prepare": "rimraf dist && npm test && npm run release",
     "version": "standard-version",
+    "build": "npm run prepare",
     "test:watch": "npm t -- -w",
     "commit": "git-cz",
     "semantic-release": "semantic-release"
